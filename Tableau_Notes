@@ -1,0 +1,18 @@
+5 Calculations are needed to create your current vs pervious year difference in sales.
+
+Current Year - Bring back your current year:
+{MAX(YEAR([Order Date]))}
+
+Prior Year - Now that you have your current year, all you need to do is minus your current year by 1:
+[Current Year]-1
+
+CY Sales - An IF statement is required to bring back your current year sales:
+IF [Current Year]= YEAR([Order Date]) THEN [Sales] END
+
+PY Sales - Likewise for your previous year's sales:
+IF [Prior Year]= YEAR([Order Date]) THEN [Sales] END
+
+CY vs PY - For your final calculation to find the difference in sales between the current and prior year, a simple subtraction then division is needed:
+(SUM([CY Sales])- SUM([PY Sales])) / SUM([PY Sales])
+
+Source: https://www.thedataschool.co.uk/alexandra-skelly/current-month-vs-pervious-month-sales/
